@@ -1,0 +1,7 @@
+{
+  "name": "Example External Filter",
+  "version": "1.0.0",
+  "runtime": "python",
+  "executable": "plugin.py",
+  "description": "Example third-party filter contract: input path, output path, JSON options."
+}

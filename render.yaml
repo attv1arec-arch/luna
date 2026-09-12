@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: lumina-photo-editor-ai
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATA_DIR
+        value: /var/data
+      - key: PYTHON_BIN
+        value: python3
+      - key: HF_HOME
+        value: /var/data/models/huggingface
+      - key: TRANSFORMERS_CACHE
+        value: /var/data/models/huggingface
+      - key: TORCH_HOME
+        value: /var/data/models/torch
+    disk:
+      name: lumina-data
+      mountPath: /var/data
+      sizeGB: 20
